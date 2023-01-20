@@ -1,0 +1,12 @@
+.App {
+    text-align: center;
+}
+
+.App-content {
+    padding-top: 20px;
+}
+
+.App-title {
+    margin-bottom: 20px;
+    cursor: pointer;
+}
