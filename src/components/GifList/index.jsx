@@ -1,4 +1,4 @@
-import GifItem from "../GifItem";
+import GifItem from "@/components/GifItem";
 import "./GifList.css";
 
 function GifList({gifs}) {

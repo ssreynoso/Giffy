@@ -4,9 +4,5 @@
 
 .App-content {
     padding-top: 20px;
-}
-
-.App-title {
-    margin-bottom: 20px;
-    cursor: pointer;
+    margin-left: var(--nav_bar_width);
 }

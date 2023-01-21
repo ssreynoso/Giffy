@@ -1,10 +1,9 @@
 import React from "react";
-import getGifs from "../services/getGifs";
+import getGifs from "@/services/getGifs";
 
 function useGifs(keyword) {
 
     const [loading, setLoading] = React.useState(false);
-
     const [gifs, setGifs]       = React.useState([]);
 
     React.useEffect(() => {

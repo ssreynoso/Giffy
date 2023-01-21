@@ -1,0 +1,27 @@
+.App-search_container {
+    height: 35px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.App-searcher {
+    width: 80%;
+    border: 1px solid black;
+    padding: 10px;
+    margin-right: 10px;
+    outline: none;
+}
+
+.App-search_button {
+    width: 20%;
+    height: 100%;
+    border: 1px solid black;
+    margin: 0;
+    cursor: pointer;
+}
+
+.App-search_button:hover {
+    filter: drop-shadow(2px 2px 5px white);
+}

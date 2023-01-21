@@ -1,0 +1,13 @@
+.NavBar__container {
+    background-color: black;
+    color: white;
+    height: 100vh;
+    position: fixed;
+    padding: 20px;
+    width: var(--nav_bar_width);
+}
+
+.NavBar__title {
+    margin-bottom: 20px;
+    cursor: pointer;
+}

@@ -1,7 +1,6 @@
-import React   from "react";
-import Loading from "../../components/GifLoading";
-import useGifs from "../../hooks/useGifs";
-import GifList from "../../components/GifList";
+import Loading from "@/components/GifLoading";
+import useGifs from "@/hooks/useGifs";
+import GifList from "@/components/GifList";
 
 function SearchResults({ params }) {
 
