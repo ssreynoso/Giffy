@@ -1,7 +1,12 @@
 import GifItem from "@/components/GifItem";
+import { Gif } from "@/types";
 import "./GifList.css";
 
-function GifList({gifs}) {
+type GifListProps = {
+    gifs: Gif[];
+}
+
+function GifList({ gifs }: GifListProps) {
 
     return (
         <div className="GifList">

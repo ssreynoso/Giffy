@@ -1,20 +1,21 @@
 import { APIConfig } from "./getAPIConfig";
 import { Gif } from "@/types";
 
-export const getGifs = function (keyword: string, limit: number) {
-    const API_KEY = APIConfig.API_KEY
-    const API_URL = `${APIConfig.BASE_URL}search?
+export const getTrendingGifs = function (limit: number, offset: number) {
+    const API_KEY = APIConfig.API_KEY;
+    const BASE_URL = APIConfig.BASE_URL;
+    const API_URL = `${BASE_URL}trending?
         api_key = ${API_KEY} &
-        q       = ${keyword} &
         limit   = ${limit}   &
-        offset  = 0          &
+        offset  = ${offset}  &
         rating  = g          &
-        lang    = en`
-    .replace(/\s/g, "");
+    `.replace(/\s/g, "");
 
     return fetch(API_URL)
         .then((response) => response.json())
         .then((response) => {
+            console.log("response");
+            console.log(response);
             const { data } = response;
             const gifs: Gif[] = data.map((image: any) => {
                 const { images, title, id } = image;

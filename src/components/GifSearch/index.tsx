@@ -1,18 +1,18 @@
 import "./GifSearch.css"
-import { useState }    from "react";
+import React, { useState }    from "react";
 import { useLocation } from "wouter";
 
 const GifSearch = function () {
     
-    const [ searchValue, setSearchValue ] = useState("");
-    const [path, push]                    = useLocation();
+    const [searchValue, setSearchValue] = useState("");
+    const [path, push]                  = useLocation();
 
-    const handleSubmit = (event) => {
+    const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
         push(`/search/${searchValue}`);
     }
     
-    const handleChange = (event) => {
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchValue(event.target.value.toString());
     }
 

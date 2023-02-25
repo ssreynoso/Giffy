@@ -2,9 +2,15 @@ import Loading from "@/components/GifLoading";
 import useGifs from "@/hooks/useGifs";
 import GifList from "@/components/GifList";
 
-function SearchResults({ params }) {
+type SearchResultsProps = {
+    params: {
+        keyword: string;
+    };
+}
 
-    const keyword = params.keyword;
+function SearchResults({ params }: SearchResultsProps) {
+
+    const { keyword } = params;
 
     const { gifs, loading } = useGifs(keyword);
 

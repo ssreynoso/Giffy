@@ -1,7 +1,7 @@
 import "./NavBar.css"
 import { Link } from "wouter";
 import GifSearch from "@/components/GifSearch";
-import GifTrending from "../GifTrending";
+import GifCategories from "@/components/GifCategories";
 
 function NavBar() {
     return (
@@ -10,7 +10,7 @@ function NavBar() {
                 <h1 className="NavBar__title">Busca un gif</h1>
             </Link>
             <GifSearch />
-            <GifTrending />
+            <GifCategories />
         </div>
     );
 }

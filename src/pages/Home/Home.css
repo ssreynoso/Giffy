@@ -1,0 +1,17 @@
+.Home__container {
+    padding: 20px;
+}
+
+.Home__container h3 {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.trendingGifs__container {
+    padding-bottom: 20px;
+    border-bottom: 1px solid black;
+}
+
+/* .mainContentGifs__container {
+    background-color: red;
+} */
