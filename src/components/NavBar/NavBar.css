@@ -11,3 +11,7 @@
     margin-bottom: 20px;
     cursor: pointer;
 }
+
+.NavBar__firstContainer {
+    height: 100px;
+}

@@ -1,7 +1,6 @@
 type T_APIConfig = {
     readonly API_KEY: string
     readonly BASE_URL: string
-
 }
 
 export const APIConfig: T_APIConfig = {

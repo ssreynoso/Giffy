@@ -1,9 +1,9 @@
 .GifCategories__container {
     margin-top: 20px;
-    min-height: 100px;
-    height: 75%;
+    /* max-height: 80%; */
+    height: calc(100% - 100px);
     border: 1px solid rgb(20, 123, 123);
-    padding: 10px;
+    padding: 0px 10px;
     /* overflow: hidden; */
     display: block;
     position: relative;
@@ -27,4 +27,11 @@
 
 .GifCategories__list li {
     margin-left: 30px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.GifCategories__list li:hover {
+    text-decoration: underline;
 }

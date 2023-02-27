@@ -1,4 +1,4 @@
-import { APIConfig } from "./getAPIConfig";
+import { APIConfig } from "@/config";
 import { Category } from "@/types";
 
 export const getCategories = function () {

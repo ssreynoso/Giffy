@@ -1,4 +1,4 @@
-import { APIConfig } from "./getAPIConfig";
+import { APIConfig } from "../config";
 import { Gif } from "@/types";
 
 export const getGifs = function (keyword: string, limit: number) {

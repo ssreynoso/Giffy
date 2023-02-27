@@ -1,4 +1,4 @@
-import { APIConfig } from "./getAPIConfig";
+import { APIConfig } from "../config";
 import { Gif } from "@/types";
 
 export const getTrendingGifs = function (limit: number, offset: number) {
