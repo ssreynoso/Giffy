@@ -4,6 +4,6 @@ type T_APIConfig = {
 }
 
 export const APIConfig: T_APIConfig = {
-    API_KEY: "YolxJfVQQOI0uHqTgTPKfYd19RypDVRM",
-    BASE_URL: "https://api.giphy.com/v1/gifs/",
+    API_KEY: 'YolxJfVQQOI0uHqTgTPKfYd19RypDVRM',
+    BASE_URL: 'https://api.giphy.com/v1/gifs/',
 }

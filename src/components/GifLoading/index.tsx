@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react'
 
-function GifLoading(props) {
-    return <p>Cargando...</p>;
+function GifLoading() {
+    return <p>Cargando...</p>
 }
 
-export default GifLoading;
+export default GifLoading

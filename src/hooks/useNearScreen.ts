@@ -1,30 +1,34 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from 'react'
 
 type configProps = {
     distance?: string
     externalRef?: React.RefObject<HTMLDivElement> | null
     once?: boolean
 }
-export const useNearScreen = function({ distance = '100px', externalRef, once = true }: configProps) {
 
-    const [ isNearScreen, setIsNearScreen ] = useState(false);
+export const useNearScreen = function ({
+    distance = '100px',
+    externalRef,
+    once = true,
+}: configProps) {
+    const [isNearScreen, setIsNearScreen] = useState(false)
     const fromRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
-        let observer: IntersectionObserver;
+        let observer: IntersectionObserver
 
         const element = externalRef ? externalRef.current : fromRef.current
-                
-        const cb: IntersectionObserverCallback = function(
-            entries: IntersectionObserverEntry[], 
-            obs    : IntersectionObserver,
-        ){
+
+        const cb: IntersectionObserverCallback = function (
+            entries: IntersectionObserverEntry[],
+            obs: IntersectionObserver
+        ) {
             const el = entries[0]
-            if (el.isIntersecting){
-                setIsNearScreen(true);
-                if(once) obs.disconnect()
+            if (el.isIntersecting) {
+                setIsNearScreen(true)
+                if (once) obs.disconnect()
             } else {
-                if(!once) setIsNearScreen(false)
+                if (!once) setIsNearScreen(false)
             }
         }
 
@@ -39,16 +43,15 @@ export const useNearScreen = function({ distance = '100px', externalRef, once = 
             observer = new IntersectionObserver(cb, {
                 rootMargin: distance,
             })
-            
-            if(element) observer.observe(element)
-        })
 
+            if (element) observer.observe(element)
+        })
 
         return () => observer && observer.disconnect()
     })
 
     return {
         isNearScreen,
-        fromRef
+        fromRef,
     }
 }

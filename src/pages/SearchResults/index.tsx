@@ -1,33 +1,36 @@
 import './SearchResults.css'
-import Loading from "@/components/GifLoading";
-import useGifs from "@/hooks/useGifs";
-import GifList from "@/components/GifList";
-import debounce from 'just-debounce-it';
-import { useCallback, useEffect, useRef } from "react";
-import { useNearScreen } from "@/hooks/useNearScreen";
+import React from 'react'
+import Loading from '@/components/GifLoading'
+import useGifs from '@/hooks/useGifs'
+import GifList from '@/components/GifList'
+import debounce from 'just-debounce-it'
+import { useCallback, useEffect, useRef } from 'react'
+import { useNearScreen } from '@/hooks/useNearScreen'
 
 type SearchResultsProps = {
     params: {
-        keyword: string;
-    };
+        keyword: string
+    }
 }
 
 function SearchResults({ params }: SearchResultsProps) {
-
-    const { keyword } = params;
+    const { keyword } = params
 
     const externalRef = useRef<HTMLDivElement>(null)
-    const { gifs, loading, setPage } = useGifs(keyword);
-    const { isNearScreen } = useNearScreen({ 
-        externalRef: loading ? null : externalRef, 
-        once: false
-    });
+    const { gifs, loading, setPage } = useGifs(keyword)
+    const { isNearScreen } = useNearScreen({
+        externalRef: loading ? null : externalRef,
+        once: false,
+    })
 
-    const debounceHandleNextPage = useCallback(debounce(() => {
-        console.log("Next Page")
-        setPage(prevPage => prevPage + 1)
-    }), [])
-    
+    const debounceHandleNextPage = useCallback(
+        debounce(() => {
+            console.log('Next Page')
+            setPage((prevPage) => prevPage + 1)
+        }),
+        []
+    )
+
     useEffect(() => {
         console.log(isNearScreen)
         if (isNearScreen) debounceHandleNextPage()
@@ -35,19 +38,20 @@ function SearchResults({ params }: SearchResultsProps) {
 
     return (
         <>
-            { loading 
-                ? <Loading />
-                : <>
+            {loading ? (
+                <Loading />
+            ) : (
+                <>
                     <div className='SearchResults__content'>
                         <h3>{decodeURI(keyword)}</h3>
-                        <GifList gifs={gifs}/>
+                        <GifList gifs={gifs} />
                     </div>
-                    <div id="visor" ref={externalRef}></div>
+                    <div id='visor' ref={externalRef}></div>
                 </>
-            }
+            )}
             {/* <button onClick={handleNextPage}>Get Next Page</button> */}
         </>
-    );
+    )
 }
 
-export default SearchResults;
+export default SearchResults

@@ -1,16 +1,17 @@
-import "./App.css";
-import Router from "@/Router";
-import NavBar from "@/components/NavBar";
+import './App.css'
+import React from 'react'
+import Router from '@/Router'
+import NavBar from '@/components/NavBar'
 
 function App() {
     return (
-        <div className="App">
+        <div className='App'>
             <NavBar />
-            <section className="App-content">
+            <section className='App-content'>
                 <Router />
             </section>
         </div>
-    );
+    )
 }
 
-export default App;
+export default App
