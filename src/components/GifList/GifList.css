@@ -1,9 +1,16 @@
 .GifList {
     margin-top: 20px;
-    /* display: grid; */
-    /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
-    /* grid-template-rows: masonry; */
-    column-count: 4;
-    column-gap: 20px;
-    padding: 0 100px;
+    /* column-count: 4; */
+    gap: 20px;
+    /* padding: 0 100px; */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+@supports(grid-template-rows: masonry){
+    .GifList {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-rows: masonry;    
+    }
 }

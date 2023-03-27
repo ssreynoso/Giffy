@@ -1,12 +1,19 @@
 import { useEffect, useRef, useState } from "react"
 
+type configProps = {
+    distance?: string
+    externalRef?: React.RefObject<HTMLDivElement> | null
+    once?: boolean
+}
+export const useNearScreen = function({ distance = '100px', externalRef, once = true }: configProps) {
 
-export const useNearScreen = function(config: { distance: string }) {
     const [ isNearScreen, setIsNearScreen ] = useState(false);
-    const elementRef = useRef()
+    const fromRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
         let observer: IntersectionObserver;
+
+        const element = externalRef ? externalRef.current : fromRef.current
                 
         const cb: IntersectionObserverCallback = function(
             entries: IntersectionObserverEntry[], 
@@ -15,21 +22,33 @@ export const useNearScreen = function(config: { distance: string }) {
             const el = entries[0]
             if (el.isIntersecting){
                 setIsNearScreen(true);
-                obs.disconnect()
+                if(once) obs.disconnect()
+            } else {
+                if(!once) setIsNearScreen(false)
             }
         }
 
-        observer = new IntersectionObserver(cb, {
-            rootMargin: config.distance,
+        // Envolvemos un valor en una promesa
+        // De esta forma no hacemos un new Promise y le pasamos la función, etc...
+        Promise.resolve(
+            IntersectionObserver
+            // typeof IntersectionObserver !== 'undefined'
+            //     ? IntersectionObserver
+            //     : import ('intersection-observer')
+        ).then(() => {
+            observer = new IntersectionObserver(cb, {
+                rootMargin: distance,
+            })
+            
+            if(element) observer.observe(element)
         })
-        
-        if(elementRef.current) observer.observe(elementRef.current)
 
-        return () => observer.disconnect()
+
+        return () => observer && observer.disconnect()
     })
 
     return {
         isNearScreen,
-        elementRef
+        fromRef
     }
 }

@@ -1,0 +1,8 @@
+.SearchResults__content {
+    min-height: 100vh;
+}
+
+#visor {
+    height: 30px;
+    background-color: blue;
+}
