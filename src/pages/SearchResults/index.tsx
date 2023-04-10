@@ -25,14 +25,12 @@ function SearchResults({ params }: SearchResultsProps) {
 
     const debounceHandleNextPage = useCallback(
         debounce(() => {
-            console.log('Next Page')
             setPage((prevPage) => prevPage + 1)
         }),
         []
     )
 
     useEffect(() => {
-        console.log(isNearScreen)
         if (isNearScreen) debounceHandleNextPage()
     }, [debounceHandleNextPage, isNearScreen])
 

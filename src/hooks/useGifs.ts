@@ -24,7 +24,6 @@ function useGifs(keyword?: string) {
     }, [keyword, keywordToUse])
 
     useEffect(() => {
-        console.log(page)
         if (page === INITIAL_PAGE) return
 
         setLoadingNextPage(true)
